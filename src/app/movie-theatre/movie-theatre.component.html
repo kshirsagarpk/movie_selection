@@ -1,63 +1,84 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="text-center mt-3">
     <h1>
-        Select Seats
+        Movie Ticket Booking
     </h1>
 </div>
 
 <div>
     <select (change)="onChangeMovie($event)" class="ml-5 form-control w-25">
         <option value="1" selected>Select Movie Menu</option>
-        <option value="2">Lage raho muna bhai</option>
+        <option value="2">Saaho</option>
         <option value="3">Mission Mangal</option>
-        <option value="4">Aai</option>
+        <option value="4">Kabir Singh</option>
     </select>
 </div>
 
 <div *ngIf="isMovieSelected">
+    <div class="row">
 
-    <div class="col-lg-12 seat-container">
-        <div *ngFor="let seatrow of seatmap ">
-            <div class="col-12 pricing-label"
-                *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">
-                {{seatrow.seatPricingInformation}}</div>
-            <div class="seatrow container">
-                <div *ngIf="seatChartConfig?.showRowsLabel">
-                    <div class="row-label"> {{seatrow.seatRowLabel}} </div>
-                </div>
-                <div *ngFor="let seatobj of seatrow.seats">
-                    <div class="seat-item seat-space" style="color:white ; background-color:white"
-                        *ngIf="seatobj.seatLabel == ''"> &nbsp; </div>
-                    <div placement="top"
-                        [ngClass]="{ 'seat-item' : true , 'seat-available' : seatobj.status == 'available' ,'seat-booked' : seatobj.status == 'booked' ,'seat-unavailable' : seatobj.status == 'unavailable' }"
-                        (click)="selectSeat(seatobj)"
-                        *ngIf="(seatobj.status == 'available' || seatobj.status == 'booked' )&& seatobj.seatLabel != ''">
-                        {{seatobj.seatNo}}</div>
+        <div class="col-lg-6" style="border-right: 1px solid #D88A04">
+            <div class="front">SCREEN</div>
+            <div class="seat-container">
+                <div *ngFor="let seatrow of seatmap ">
+                    <div class="col-12 pricing-label"
+                        *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">
+                        {{seatrow.seatPricingInformation}}</div>
+                    <div class="seatrow container">
+                        <div *ngIf="seatChartConfig?.showRowsLabel">
+                            <div class="row-label"> {{seatrow.seatRowLabel}} </div>
+                        </div>
+                        <div *ngFor="let seatobj of seatrow.seats">
+                            <div class="seat-item seat-space" style="color:white ; background-color:white"
+                                *ngIf="seatobj.seatLabel == ''"> &nbsp; </div>
+                            <div placement="top"
+                                [ngClass]="{ 'seat-item' : true , 'seat-available' : seatobj.status == 'available' ,'seat-booked' : seatobj.status == 'booked' ,'seat-unavailable' : seatobj.status == 'unavailable' }"
+                                (click)="selectSeat(seatobj)"
+                                *ngIf="(seatobj.status == 'available' || seatobj.status == 'booked' )&& seatobj.seatLabel != ''">
+                                {{seatobj.seatNo}}</div>
 
-                    <div placement="top" [ngClass]="{ 'seat-item' : true , 'seat-unavailable' : true }"
-                        *ngIf="seatobj.status == 'unavailable' && seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
+                            <div placement="top" [ngClass]="{ 'seat-item' : true , 'seat-unavailable' : true }"
+                                *ngIf="seatobj.status == 'unavailable' && seatobj.seatLabel != ''">{{seatobj.seatNo}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+        <div class="col-lg-6 summary-bar">
+            <div class="">
+                <div class="col-lg-12">
+                    <div class="booking-details mb-5">
+                        <ul class="book-left">
+                            <li>Movie Ticket Amout</li>
+                            <li>Total Selected </li>
+                            <li>Total Amount</li>
+                        </ul>
+                        <ul class="book-right">
+                            <li>: Rs 250</li>
+                            <li>: {{ cart?.selectedSeats?.length }}</li>
+                            <li>: {{cart.totalamount}} Rs</li>
+                        </ul>
+                    </div>
+                    <div class="selected-seats ml-5">
+                        <h5 class="col-lg-12 no-padding">Selected Seats : </h5>
+                        <span *ngFor="let seatLabel of cart.selectedSeats"
+                            class="badge badge-primary">{{seatLabel}}</span>
+                    </div>
+                    <div class="mt-4 ml-5">
+                        <button [disabled]="cart?.selectedSeats?.length == 0" type="button" class="btn btn-primary"
+                            mdbWavesEffect>Book Now</button>
+                    </div>
+                    <div class="box gray"><span class="ml-5 mt-5">Available</span></div>
+                    <div class="box green"><span class="ml-5">selected</span></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
     </div>
-
-    <div class="container">
-        <div class="col-lg-12 summary-bar">
-            <div class="col-lg-4">
-                <div>
-                    <h5>Total Selected : {{ cart?.selectedSeats?.length }}</h5>
-                    <h5>Total Amount :&nbsp;&nbsp; {{cart.totalamount}} Rs</h5>
-                </div>
-            </div>
-            <div class="col-lg-8 selected-seats">
-                <h5 class="col-lg-12 no-padding">Selected Seats : </h5>
-                <span *ngFor="let seatLabel of cart.selectedSeats" class="badge badge-primary">{{seatLabel}}</span>
-            </div>
-        </div>
-        <div class="col-lg-12 book-area">
-            <button [disabled]="cart?.selectedSeats?.length == 0" type="button"
-                class="btn btn-primary book-process" mdbWavesEffect>Book Now</button>
-        </div>
-    </div>
-
 </div>

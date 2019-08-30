@@ -36,8 +36,8 @@
     }
     .seat-available
     {
-        color: #a0a0a0;
-        background-color: white;
+        color: #000000a1;
+        background-color: #8a808026;
         font-weight: bolder;
         border: 1px solid #a0a0a0;
     }
@@ -58,7 +58,7 @@
     {
         color: white;
         font-weight: bolder;
-        background-color: #a0a0a0;
+        background-color: #5ac55a;
         border: 1px solid white;
     
     }
@@ -70,7 +70,7 @@
     .seat-container
     {
         overflow-x: auto;
-        padding: 5% 36%;
+        padding: 2% 30%;
         overflow-y: hidden;
     }
     
@@ -98,20 +98,6 @@
       font-weight: bold;
     }
     
-    .book-area
-    {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-    }
-
-    .book-process 
-    {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-    }
-
     .total-amount
     {
         background-color: #F17924;
@@ -140,3 +126,47 @@
     {
         padding: 0;
     }
+    .front{
+        margin: 20px 4px 45px 38px;
+        background-color: #D88A04;
+        color: #fff;
+        text-align: center;
+        padding: 9px 0;
+        border-radius: 3px;
+        }
+        ul{
+            list-style-type: none;
+        }
+        ul.book-left {
+            float: left;
+        }
+        ul.book-right {
+            float: right;
+        }
+        ul.book-left li {
+            font-size: 16px;
+            font-weight: 600;
+            color: #D88A04;
+            line-height: 1.9em;
+        }
+        ul.book-right li {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+            line-height: 1.9em;
+        }
+        .box{
+            width:30px;
+            height:30px;
+            margin: 39px 49px 15px;
+            border-radius: 5px;
+        }
+        .green{
+            background:#5ac55a;
+        }
+        .gray{
+            background: #8a808026;
+        }
+        .row{
+            margin:auto;
+        }
