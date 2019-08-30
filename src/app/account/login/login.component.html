@@ -1,0 +1,19 @@
+<div class="login-form">
+    <form [formGroup]="loginForm">
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+            <input type="number" formControlName="mobileNo"  [class.is-invalid]="isFieldValid('mobileNo')" class="form-control" placeholder="Mobile Number">
+            <div class="invalid-feedback">
+                <div *ngIf="hasError('mobileNo', 'required')">Mobile no is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" formControlName="password" [class.is-invalid]="isFieldValid('password')" class="form-control" placeholder="Password">
+            <div class="invalid-feedback" *ngIf="hasError('password', 'required')">Password is required</div>
+        </div>
+        <div class="form-group">
+            <button type="submit" (click)="onSubmit()" class="btn btn-primary btn-block">Login</button>
+        </div>     
+    </form>
+    <p class="text-center"><a routerLink="/account/registration">Create an Account</a></p>
+</div>

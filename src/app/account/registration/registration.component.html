@@ -1,0 +1,53 @@
+<div *ngIf="isRegisterSuccessfully" class="registraion-form">
+    <form [formGroup]="registraionForm">
+        <h2>Register</h2>
+        <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+            <input type="text" class="form-control" [class.is-invalid]="isFieldValid('fullName')"
+                formControlName="fullName" placeholder="Full Name">
+            <div class="invalid-feedback">
+                <div *ngIf="hasError('fullName', 'required')">Full name is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" [class.is-invalid]="isFieldValid('email')" formControlName="email"
+                placeholder="Email">
+            <div class="invalid-feedback">
+                <div *ngIf="hasError('email', 'required')">Email no is required.</div>
+                <div *ngIf="hasError('email', 'email')">Email is not valid.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="number" maxlength="10" class="form-control" [class.is-invalid]="isFieldValid('mobileNo')"
+                formControlName="mobileNo" placeholder="Mobile Number">
+            <div class="invalid-feedback">
+                <div *ngIf="hasError('mobileNo', 'required')">Mobile number is required.</div>
+            </div>
+            <div class="text-danger" *ngIf="!isMobileNoValid">Mobile number is already register, Please enter another.
+            </div>
+
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" [class.is-invalid]="isFieldValid('password')"
+                formControlName="password" placeholder="Password">
+            <div class="invalid-feedback">
+                <div *ngIf="hasError('password', 'required')">Password is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" (click)="onSubmit()" class="btn btn-success btn-lg btn-block">REGISTER</button>
+        </div>
+        <div class="form-group">
+            <div class="text-center">Already have an account? <a routerLink="/account/login">Sign in</a></div>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="!isRegisterSuccessfully" class="registraion-form1">
+    <form>
+        <h2>Register successfully</h2>
+        <div class="form-group">
+            <div class="text-center">Click here!! <a routerLink="/account/login">Sign in</a></div>
+        </div>
+    </form>
+</div>

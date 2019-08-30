@@ -1,0 +1,98 @@
+body{
+    color: #fff;
+    background: #63738a;
+    font-family: 'Roboto', sans-serif;
+}
+.form-control{
+    height: 40px;
+    box-shadow: none;
+    color: #969fa4;
+}
+.form-control:focus{
+    border-color: #5cb85c;
+}
+.form-control, .btn{        
+    border-radius: 3px;
+}
+.registraion-form,.registraion-form1{
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.registraion-form1 h2,
+    .registraion-form h2{
+    color: #636363;
+    margin: 0 0 15px;
+    position: relative;
+    text-align: center;
+}
+.registraion-form h2:before, .registraion-form h2:after
+    {
+    content: "";
+    height: 2px;
+    width: 30%;
+    background: #d4d4d4;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+}	
+.registraion-form h2:before,
+    .registraion-form1 h2:before{
+    left: 0;
+}
+.registraion-form h2:after,
+    .registraion-form1 h2:after{
+    right: 0;
+}
+.registraion-form .hint-text,.registraion-form1 .hint-text{
+    color: #999;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.registraion-form form,.registraion-form1 form{
+    color: #999;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #f2f3f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.registraion-form .form-group,.registraion-form1 .form-group{
+    margin-bottom: 20px;
+}
+.registraion-form input[type="checkbox"]{
+    margin-top: 3px;
+}
+.registraion-form .btn{        
+    font-size: 16px;
+    font-weight: bold;		
+    min-width: 140px;
+    outline: none !important;
+}
+.registraion-form .row div:first-child{
+    padding-right: 10px;
+}
+.registraion-form .row div:last-child{
+    padding-left: 10px;
+}    	
+.registraion-form a,.registraion-form1 a{
+    color: #fff;
+    text-decoration: underline;
+}
+.registraion-form a:hover,.registraion-form1 a:hover{
+    text-decoration: none;
+}
+.registraion-form form a,.registraion-form1 form a{
+    color: #5cb85c;
+    text-decoration: none;
+}	
+.registraion-form form a:hover,.registraion-form1 form a:hover{
+    text-decoration: underline;
+}
+
+a {
+    color: #007bff !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
